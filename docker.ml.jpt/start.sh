@@ -24,4 +24,21 @@ chown -R ${PUID}:${PGID} /home/coder
 echo "WORKSPACE=${WORKSPACE}"
 echo "NOTEBOOKAPP_PASSWORD=${NOTEBOOKAPP_PASSWORD}"
 
-su - coder -c "jupyter notebook --ip 0.0.0.0 --no-browser --allow-root --notebook-dir=${WORKSPACE} --NotebookApp.password=${NOTEBOOKAPP_PASSWORD}"
+#*******************************************************************************
+# Handle SIG TERM
+WORKER_PID=''
+
+handle_sig_term(){
+    # echo "[start.sh] SIGTERM received."
+    # kill -TERM $WORKER_PID
+    # wait $WORKER_PID
+
+    echo "[start.sh] Stop jupyter notebook."
+    jupyter notebook stop 8888
+}
+
+trap 'handle_sig_term' TERM
+#-------------------------------------------------------------------------------
+
+su - coder -c "jupyter notebook --ip 0.0.0.0 --no-browser --allow-root --notebook-dir=${WORKSPACE} --NotebookApp.password=${NOTEBOOKAPP_PASSWORD}" & WORKER_PID=$!
+wait $WORKER_PID
