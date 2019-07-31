@@ -76,15 +76,15 @@ DOCKER=NV_GPU=$(GPU) nvidia-docker
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/ml-jpt:v2
-ARG_CONTAINER_NAME?=ml-jpt-v2-YOURNAME
-ARG_CONTAINER_HOSTNAME?=ML-JPT-V2
+ARG_IMAGE_NAME?=dockerhob/ml-jpt:v3
+ARG_CONTAINER_NAME?=ml-jpt-v3-YOURNAME
+ARG_CONTAINER_HOSTNAME?=ML-JPT-V3-YOURNAME
 #-------------------------------------------------------------------------------
 ARG_PUID?=$(shell id -u)
 ARG_PGID?=$(shell id -g)
 #-------------------------------------------------------------------------------
-ARG_PORT_TENSORBOARD?=9206
-ARG_PORT_JUPYTERNOTE?=9288
+ARG_PORT_JUPYTERNOTE?=9388
+ARG_PORT_TENSORBOARD?=9306
 #-------------------------------------------------------------------------------
 ARG_JUPYTER_PWD?=coder
 ARG_JUPYTER_PWD_HASH?=sha1:eea72ef993c9:e8ed1d0e66a00a6cdfce2d3cddf685fb9e67742f
@@ -142,8 +142,8 @@ runf: ## 도커 컨테이너를 실행합니다. (고정 포트 연결)
 		-h $(ARG_CONTAINER_HOSTNAME) \
 		-e PUID=$(ARG_PUID) -e PGID=$(ARG_PGID) \
 		-e NOTEBOOKAPP_PASSWORD=$(ARG_JUPYTER_PWD_HASH) \
-		-p $(ARG_PORT_TENSORBOARD):6006 \
 		-p $(ARG_PORT_JUPYTERNOTE):8888 \
+		-p $(ARG_PORT_TENSORBOARD):6006 \
 		-v $(ARG_WORKSPACE_HOST):$(ARG_WORKSPACE_CONTAINER) \
 		-v /SGS:/SGS \
 		-v /etc/timezone:/etc/timezone \

@@ -76,9 +76,9 @@ DOCKER=NV_GPU=$(GPU) nvidia-docker
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/ml-ssh:v1
-ARG_CONTAINER_NAME?=ml-ssh-v1-YOURNAME
-ARG_CONTAINER_HOSTNAME?=ML-SSH-V1
+ARG_IMAGE_NAME?=dockerhob/ml-ssh:v2
+ARG_CONTAINER_NAME?=ml-ssh-v2-YOURNAME
+ARG_CONTAINER_HOSTNAME?=ML-SSH-V2-YOURNAME
 #-------------------------------------------------------------------------------
 ARG_PUID?=$(shell id -u)
 ARG_PGID?=$(shell id -g)
