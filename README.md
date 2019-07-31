@@ -37,7 +37,7 @@
 (Option) Makefile에서 다음 두 라인 편집
 
     GPU?=0
-    ARG_CONTAINER_NAME?=ml-jpt-v1-BTS
+    ARG_CONTAINER_NAME?=ml-jpt-v1-YOURNAME
 
     # e.g.
     GPU?=0,1,2,3
@@ -77,7 +77,7 @@ cat                            Makefile 출력
 ```
 # 출력된 결과
 
-NV_GPU=0 nvidia-docker run -d --restart=unless-stopped \
+NV_GPU=0,1,2,3 nvidia-docker run -d --restart=unless-stopped \
 	--name ml-ssh-v1-BTS \
 	--ipc=host \
 	-h ML-SSH-V1 \
