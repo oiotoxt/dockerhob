@@ -1,17 +1,20 @@
-## 사용법
+# 0. 소개
 
----
+* 컨테이너 기반 머신러닝 개발 환경
+* 지속적으로 Dockerfile 추가 예정입니다.
 
-### GPU를 사용할 경우
+# 1. 사용법
 
-#### 시스템 요구 사항
+## 1.1 GPU를 사용할 경우
 
-- linux
-- NVIDIA Driver
-- docker
-- nvidia-docker
+### 시스템 요구 사항
 
-#### 사용법
+* [Linux](https://ubuntu.com/)
+* [NVIDIA Driver](https://www.google.com/search?newwindow=1&ei=x0lBXfGhI5zMmAW_3ZXoDQ&q=How+to+Install+latest+nvidia+drivers+in+linux&oq=How+to+Install+latest+nvidia+drivers+in+linux&gs_l=psy-ab.3..35i39i19.1543.1917..2800...0.0..0.122.232.0j2......0....1..gws-wiz.......0i19.NIeyvBbm3Xs&ved=0ahUKEwixoabA197jAhUcJqYKHb9uBd0Q4dUDCAo&uact=5)
+* [Docker](https://docs.docker.com/install/)
+* [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+
+### 따라하기
 
 (컨테이너에서 바라볼) 작업 디렉토리 만들기
 
@@ -23,16 +26,22 @@
 
     $ git clone https://github.com/oiotoxt/dockerhob.git
 
+    $ cd dockerhob
+
 다음 중 한 폴더로 이동
 
     $ cd docker.ml.ssh
 
     $ cd docker.ml.jpt
 
-(옵션) Makefile에서 다음 두 라인 편집
+(Option) Makefile에서 다음 두 라인 편집
 
     GPU?=0
-    ARG_CONTAINER_NAME?=ml-jpt-v1-YOURNAME
+    ARG_CONTAINER_NAME?=ml-jpt-v1-BTS
+
+    # e.g.
+    GPU?=0,1,2,3
+    ARG_CONTAINER_NAME?=ml-jpt-v1-BTS
 
 명령어 설명 보기
 
@@ -69,12 +78,12 @@ cat                            Makefile 출력
 # 출력된 결과
 
 NV_GPU=0 nvidia-docker run -d --restart=unless-stopped \
-	--name ml-ssh-v1-YOURNAME \
+	--name ml-ssh-v1-BTS \
 	--ipc=host \
 	-h ML-SSH-V1 \
 	-e PUID=1080 -e PGID=1080 \
 	-P \
-	-v /home/peras/repos:/workspace \
+	-v /home/YourID/repos:/workspace \
 	-v /etc/timezone:/etc/timezone \
 	-v /etc/localtime:/etc/localtime \
 	dockerhob/ml-ssh:v1
@@ -90,8 +99,8 @@ e01c613790a39a2d0f740b390241eac2370c084dc4b5e0026a67618e04c63a87
 
 ----------------------------------------
 ARG_IMAGE_NAME          = dockerhob/ml-ssh:v1
-ARG_CONTAINER_NAME      = ml-ssh-v1-YOURNAME
-ARG_WORKSPACE_HOST      = /home/peras/repos
+ARG_CONTAINER_NAME      = ml-ssh-v1-BTS
+ARG_WORKSPACE_HOST      = /home/YourID/repos
 ARG_WORKSPACE_CONTAINER = /workspace
 ----------------------------------------
 ARG_PUID                = 1080
@@ -116,15 +125,13 @@ Port(TensorBoard)=32992
 
     $ make rm
 
----
+## 1.2 CPU만 사용할 경우
 
-### CPU만 사용할 경우
+### 시스템 요구 사항
 
-#### 시스템 요구 사항
+* [Linux](https://ubuntu.com/)
+* [Docker](https://docs.docker.com/install/)
 
-- linux
-- docker
+### 따라하기
 
-#### 사용법
-
-- 준비 중입니다.
+* 준비 중입니다.
