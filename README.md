@@ -2,6 +2,9 @@
 
 * 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
 * 지속적으로 Dockerfile 추가 예정입니다.
+* 참고한 프로젝트
+  * Deepo : https://github.com/ufoym/deepo
+  * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
 
 # 1. 사용법
 
