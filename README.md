@@ -1,7 +1,21 @@
 # 0. 소개
 
-* 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
-* 지속적으로 Dockerfile 추가 예정입니다.
+* 도커 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
+  * make 명령어를 통한 약식 CLI 지원
+  * [/docker.ml.ssh](https://github.com/oiotoxt/dockerhob/tree/master/docker.ml.ssh)에 포함된 주요 패키지
+    * python        3.6    (apt)
+    * onnx          latest (pip)
+    * pytorch       latest (pip)
+    * tensorflow    latest (pip)
+    * **SSH 서비스**
+      * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
+  * [/docker.ml.jpt](https://github.com/oiotoxt/dockerhob/tree/master/docker.ml.jpt)에 포함된 주요 패키지
+    * python        3.6    (apt)
+    * onnx          latest (pip)
+    * pytorch       latest (pip)
+    * tensorflow    latest (pip)
+    * **jupyter       latest (pip)**
+* 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
 * 참고한 프로젝트
   * Deepo : https://github.com/ufoym/deepo
   * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
