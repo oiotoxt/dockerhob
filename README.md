@@ -21,9 +21,9 @@
 
 (컨테이너에서 바라볼) 작업 디렉토리 만들기
 
-    $ mkdir .../MyWorkspace
+    $ mkdir .../MY_WORKSPACE
 
-    $ cd .../MyWorkspace
+    $ cd .../MY_WORKSPACE
 
 프로젝트 클론
 
@@ -86,7 +86,7 @@ NV_GPU=0,1,2,3 nvidia-docker run -d --restart=unless-stopped \
 	-h ML-SSH-V1 \
 	-e PUID=1080 -e PGID=1080 \
 	-P \
-	-v /home/YourID/MyWorkspace:/workspace \
+	-v /home/MY_ID/MY_WORKSPACE:/workspace \
 	-v /etc/timezone:/etc/timezone \
 	-v /etc/localtime:/etc/localtime \
 	dockerhob/ml-ssh:v1
@@ -105,7 +105,7 @@ NV_GPU=0 nvidia-docker run -d --restart=unless-stopped \
 	-e PUID=1080 -e PGID=1080 \
 	-e NOTEBOOKAPP_PASSWORD=sha1:eea72ef993c9:e8ed1d0e66a00a6cdfce2d3cddf685fb9e67742f \
 	-P \
-	-v /home/YourID/MyWorkspace:/workspace \
+	-v /home/MY_ID/MY_WORKSPACE:/workspace \
 	-v /etc/timezone:/etc/timezone \
 	-v /etc/localtime:/etc/localtime \
 	dockerhob/ml-jpt:v1
@@ -122,7 +122,7 @@ a6e11563e19b2d0dea35bca4fe202471ff9bd28e0c9d6990853234628d1bc9e5
 ----------------------------------------
 ARG_IMAGE_NAME          = dockerhob/ml-ssh:v1
 ARG_CONTAINER_NAME      = ml-ssh-v1-BTS
-ARG_WORKSPACE_HOST      = /home/YourID/MyWorkspace
+ARG_WORKSPACE_HOST      = /home/MY_ID/MY_WORKSPACE
 ARG_WORKSPACE_CONTAINER = /workspace
 ----------------------------------------
 ARG_PUID                = 1080
@@ -145,7 +145,7 @@ Port(TensorBoard)=32992
 ----------------------------------------
 ARG_IMAGE_NAME          = dockerhob/ml-jpt:v1
 ARG_CONTAINER_NAME      = ml-jpt-v1-BTS
-ARG_WORKSPACE_HOST      = /home/YourID/MyWorkspace
+ARG_WORKSPACE_HOST      = /home/MY_ID/MY_WORKSPACE
 ARG_WORKSPACE_CONTAINER = /workspace
 ----------------------------------------
 ARG_PUID                = 1080
@@ -156,7 +156,7 @@ ARG_JUPYTER_PWD_HASH    = sha1:eea72ef993c9:e8ed1d0e66a00a6cdfce2d3cddf685fb9e67
 ----------------------------------------
 Port(TensorBoard)=33247
 ----------------------------------------
-==> http://172.20.93.122:33246
+==> http://172.20.41.21:33246
 ----------------------------------------
 ```
 
@@ -172,7 +172,7 @@ Port(TensorBoard)=33247
 
     # (docker.ml.jpt)
 
-    http://172.20.93.122:33246 방문
+    http://172.20.41.21:33246 방문
 
     password: coder
 
