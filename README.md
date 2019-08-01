@@ -40,7 +40,7 @@
 (Option) Makefile에서 다음 두 라인 편집
 
     GPU?=0
-    ARG_CONTAINER_NAME?=ml-ssh-v1-YOURNAME
+    ARG_CONTAINER_NAME?=ml-ssh-v1-DEFAULT
 
     # 예)
     GPU?=0,1,2,3
@@ -62,6 +62,7 @@ runf                           도커 컨테이너를 실행합니다. (고정 �
 start                          컨테이너를 시작합니다.
 stop                           컨테이너를 중지합니다.
 rm                             컨테이너를 중지하고 삭제합니다.
+copyauth                       호스트의 authrized_keys를 컨테이너에 복사 (as coder)
 ssh                            컨테이너에 SSH 연결 (as coder)
 sshroot                        컨테이너에 SSH 연결 (as root)
 info                           SSH로 컨테이너에 연결할 때 사용할 컨맨드 등 출력
@@ -110,8 +111,8 @@ NV_GPU=0 nvidia-docker run -d --restart=unless-stopped \
 	-v /etc/localtime:/etc/localtime \
 	dockerhob/ml-jpt:v1
 a6e11563e19b2d0dea35bca4fe202471ff9bd28e0c9d6990853234628d1bc9e5
-
 ```
+
 컨테이너 정보 조회
 
     $ make info
@@ -160,7 +161,15 @@ Port(TensorBoard)=33247
 ----------------------------------------
 ```
 
-위 결과 내용을 참고하여 접속
+(Option) 편의를 위해 호스트의 authrized_keys를 컨테이너에 복사
+
+    # (docker.ml.ssh)
+
+    $ make copyauth
+
+    password: coder
+
+위 make info의 출력 내용을 참고하여 접속
 
     # (docker.ml.ssh)
 
