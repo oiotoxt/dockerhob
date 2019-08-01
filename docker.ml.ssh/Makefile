@@ -153,6 +153,11 @@ stop: ## 컨테이너를 중지합니다.
 rm: stop ## 컨테이너를 중지하고 삭제합니다.
 	docker rm $(ARG_CONTAINER_NAME)
 
+copyauth: ## 호스트의 authrized_keys를 컨테이너에 복사 (as coder)
+	$(eval HOST_IP := $(shell hostname -I | grep -o '^\S*'))
+	$(eval SSH_PORT := $(shell docker port $(ARG_CONTAINER_NAME) | grep 22/ | sed 's/.*0.0.0.0://g' | sed 's/->.*//g'))
+	scp -P $(SSH_PORT) $(HOME)/.ssh/authorized_keys coder@$(HOST_IP):/home/coder/.ssh
+
 ssh: ## 컨테이너에 SSH 연결 (as coder)
 	$(eval HOST_IP := $(shell hostname -I | grep -o '^\S*'))
 	$(eval SSH_PORT := $(shell docker port $(ARG_CONTAINER_NAME) | grep 22/ | sed 's/.*0.0.0.0://g' | sed 's/->.*//g'))

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# SCP doesn't work when echo in .bashrc?
+#   https://stackoverflow.com/questions/12440287/scp-doesnt-work-when-echo-in-bashrc
+if [ -z "$PS1" ]; then
+    return
+fi
+
 echo "sourced: /etc/bash.bashrc"
 #-------------------------------------------------------------------------------
 export PS1="\[\e[31m\]coder\[\e[m\] \[\e[33m\]\w\[\e[m\] > "
