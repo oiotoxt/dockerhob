@@ -1,6 +1,6 @@
 # 0. 소개
 
-* 도커 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
+* 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
   * make 명령어를 통한 약식 CLI 지원
   * [/docker.ml.ssh](https://github.com/oiotoxt/dockerhob/tree/master/docker.ml.ssh)에 포함된 주요 패키지
     * python        3.6    (apt)
@@ -82,9 +82,9 @@ sshroot                        컨테이너에 SSH 연결 (as root)
 info                           SSH로 컨테이너에 연결할 때 사용할 컨맨드 등 출력
 logs                           컨테이너 내부의 로그를 봅니다.
 env                            EXEC: 컨테이너 내부의 도커 환경을 봅니다. (as coder)
-bash                           EXEC: 컨테이너 bash 실행 (as coder)
-bashroot                       EXEC: 컨테이너 bash 실행 (as root)
-piplist                        EXEC: 컨테이너 pip list 실행 (as coder)
+bash                           EXEC: 컨테이너 내부의 bash 실행 (as coder)
+bashroot                       EXEC: 컨테이너 내부의 bash 실행 (as root)
+piplist                        EXEC: 컨테이너 내부의 pip list 실행 (as coder)
 cat                            Makefile 출력
 ```
 
