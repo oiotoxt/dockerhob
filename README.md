@@ -7,7 +7,7 @@
     * onnx          latest (pip)
     * pytorch       latest (pip)
     * tensorflow    latest (pip)
-    * **SSH 서비스**
+    * **openssh-server** latest (apt)
       * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
   * [/docker.ml.jpt](https://github.com/oiotoxt/dockerhob/tree/master/docker.ml.jpt)에 포함된 주요 패키지
     * python        3.6    (apt)
@@ -67,9 +67,9 @@
 ```
 # 출력된 결과
 
-_build                         [관리자 전용] 도커 이미지를 만듭니다.
-_push                          [관리자 전용] 레지스트리에 push 합니다.
-pull                           이미 생성된 이미지를 받아옵니다.
+_build                         로컬에 도커 이미지를 만듭니다.
+_push                          [관리자 전용] 이미지를 레지스트리에 push 합니다.
+pull                           레지스트리에서 이미지를 받아옵니다.
 run                            도커 컨테이너를 실행합니다. (랜덤 포트 연결)
 runi                           도커 컨테이너를 실행합니다. (랜덤 포트 연결. 인터랙티브 모드)
 runf                           도커 컨테이너를 실행합니다. (고정 포트 연결)
@@ -84,7 +84,7 @@ logs                           컨테이너 내부의 로그를 봅니다.
 env                            EXEC: 컨테이너 내부의 도커 환경을 봅니다. (as coder)
 bash                           EXEC: 컨테이너 bash 실행 (as coder)
 bashroot                       EXEC: 컨테이너 bash 실행 (as root)
-piplist                        EXEC: pip list (as coder)
+piplist                        EXEC: 컨테이너 pip list 실행 (as coder)
 cat                            Makefile 출력
 ```
 

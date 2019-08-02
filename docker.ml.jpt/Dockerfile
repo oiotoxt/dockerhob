@@ -34,6 +34,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         wget \
         git \
         vim \
+        libssl-dev \
         curl \
         unzip \
         unrar \
@@ -50,7 +51,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         mc \
         nodejs \
         npm \
-        openssh-server \
+        # openssh-server \
         rsync \
         sshfs \
         libsndfile1 \

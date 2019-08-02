@@ -78,9 +78,9 @@ ARG_TENSORFLOW_VERSION?=tf-nightly-gpu-2.0-preview
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/ml-jpt:v4
-ARG_CONTAINER_NAME?=ml-jpt-v4-DEFAULT
-ARG_CONTAINER_HOSTNAME?=ML-JPT-V4-DEFAULT
+ARG_IMAGE_NAME?=dockerhob/ml-jpt:v5
+ARG_CONTAINER_NAME?=ml-jpt-v5-DEFAULT
+ARG_CONTAINER_HOSTNAME?=ML-JPT-V5-DEFAULT
 #-------------------------------------------------------------------------------
 ARG_PUID?=$(shell id -u)
 ARG_PGID?=$(shell id -g)
@@ -97,15 +97,15 @@ ARG_WORKSPACE_CONTAINER?=/workspace
 #*******************************************************************************
 # $ make xxx
 #-------------------------------------------------------------------------------
-_build: ## [관리자 전용] 도커 이미지를 만듭니다.
+_build: ## 로컬에 도커 이미지를 만듭니다.
 	docker build -t $(ARG_IMAGE_NAME) \
 		--build-arg tensorflow_version=$(ARG_TENSORFLOW_VERSION) \
 		-f Dockerfile .
 
-_push: ## [관리자 전용] 레지스트리에 push 합니다.
+_push: ## [관리자 전용] 이미지를 레지스트리에 push 합니다.
 	docker push $(ARG_IMAGE_NAME)
 
-pull: ## 이미 생성된 이미지를 받아옵니다.
+pull: ## 레지스트리에서 이미지를 받아옵니다.
 	docker pull $(ARG_IMAGE_NAME)
 
 run: ## 도커 컨테이너를 실행합니다. (랜덤 포트 연결)
@@ -188,13 +188,13 @@ logs: ## 컨테이너 내부의 로그를 봅니다.
 env: ## EXEC: 컨테이너 내부의 도커 환경을 봅니다. (as coder)
 	docker exec -u $(ARG_PUID):$(ARG_PGID) $(ARG_CONTAINER_NAME) env
 
-bash: ## EXEC: 컨테이너 bash 실행 (as coder)
+bash: ## EXEC: 컨테이너 내부의 bash 실행 (as coder)
 	docker exec -it -u $(ARG_PUID):$(ARG_PGID) $(ARG_CONTAINER_NAME) bash
 
-bashroot: ## EXEC: 컨테이너 bash 실행 (as root)
+bashroot: ## EXEC: 컨테이너 내부의 bash 실행 (as root)
 	docker exec -it $(ARG_CONTAINER_NAME) bash
 
-piplist: ## EXEC: pip list (as coder)
+piplist: ## EXEC: 컨테이너 내부의 pip list 실행 (as coder)
 	docker exec -u $(ARG_PUID):$(ARG_PGID) $(ARG_CONTAINER_NAME) pip list
 
 cat: ## Makefile 출력
