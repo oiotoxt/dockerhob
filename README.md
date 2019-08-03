@@ -14,7 +14,7 @@
     * onnx          latest (pip)
     * pytorch       latest (pip)
     * tensorflow    latest (pip)
-    * **jupyter       latest (pip)**
+    * **jupyter**     latest (pip)
 * 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
 * 참고한 프로젝트
   * Deepo : https://github.com/ufoym/deepo
