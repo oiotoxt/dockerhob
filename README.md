@@ -58,25 +58,25 @@ ARG_CONTAINER_NAME?=ml-ssh-dev1
 $ make
 
 # 결과 예)
-_build                         로컬에 도커 이미지를 만듭니다.
-_push                          [관리자 전용] 이미지를 레지스트리에 push 합니다.
-pull                           레지스트리에서 이미지를 받아옵니다.
-run                            도커 컨테이너를 실행합니다. (랜덤 포트 연결)
-runi                           도커 컨테이너를 실행합니다. (랜덤 포트 연결. 인터랙티브 모드)
-runf                           도커 컨테이너를 실행합니다. (고정 포트 연결)
-start                          컨테이너를 시작합니다.
-stop                           컨테이너를 중지합니다.
-rm                             컨테이너를 중지하고 삭제합니다.
-copyauth                       호스트의 authrized_keys를 컨테이너에 복사 (as coder)
-ssh                            컨테이너에 SSH 연결 (as coder)
-sshroot                        컨테이너에 SSH 연결 (as root)
-info                           SSH로 컨테이너에 연결할 때 사용할 컨맨드 등 출력
-logs                           컨테이너 내부의 로그를 봅니다.
-env                            EXEC: 컨테이너 내부의 도커 환경을 봅니다. (as coder)
-bash                           EXEC: 컨테이너 내부의 bash 실행 (as coder)
-bashroot                       EXEC: 컨테이너 내부의 bash 실행 (as root)
-piplist                        EXEC: 컨테이너 내부의 pip list 실행 (as coder)
-cat                            Makefile 출력
+_build       로컬에 도커 이미지를 만듭니다.
+_push        [관리자 전용] 이미지를 레지스트리에 push 합니다.
+pull         레지스트리에서 이미지를 받아옵니다.
+run          도커 컨테이너를 실행합니다. (랜덤 포트 연결)
+runi         도커 컨테이너를 실행합니다. (랜덤 포트 연결. 인터랙티브 모드)
+runf         도커 컨테이너를 실행합니다. (고정 포트 연결)
+start        컨테이너를 시작합니다.
+stop         컨테이너를 중지합니다.
+rm           컨테이너를 중지하고 삭제합니다.
+copyauth     호스트의 authrized_keys를 컨테이너에 복사 (as coder)
+ssh          컨테이너에 SSH 연결 (as coder)
+sshroot      컨테이너에 SSH 연결 (as root)
+info         SSH로 컨테이너에 연결할 때 사용할 컨맨드 등 출력
+logs         컨테이너 내부의 로그를 봅니다.
+env          EXEC: 컨테이너 내부의 도커 환경을 봅니다. (as coder)
+bash         EXEC: 컨테이너 내부의 bash 실행 (as coder)
+bashroot     EXEC: 컨테이너 내부의 bash 실행 (as root)
+piplist      EXEC: 컨테이너 내부의 pip list 실행 (as coder)
+cat          Makefile 출력
 ```
 
 ```bash
