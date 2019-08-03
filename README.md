@@ -126,7 +126,9 @@ $ make copyauth
 
 # 위 make info의 출력 내용을 참고하여 접속 (password: coder)
 $ ssh coder@172.20.41.21 -p 32993
+```
 
+```bash
 # 더 이상 컨테이너가 필요 없으면 중지 및 삭제
 $ make rm
 ```
