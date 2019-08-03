@@ -79,8 +79,9 @@ ARG_TENSORFLOW_VERSION?=tf-nightly-gpu-2.0-preview
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
 ARG_IMAGE_NAME?=dockerhob/ml-jpt:v5
-ARG_CONTAINER_NAME?=ml-jpt-v5-DEFAULT
-ARG_CONTAINER_HOSTNAME?=ML-JPT-V5-DEFAULT
+ARG_CONTAINER_NAME?=ml-jpt-default
+# ARG_CONTAINER_HOSTNAME?=$(shell echo $(ARG_CONTAINER_NAME) | tr a-z A-Z)
+ARG_CONTAINER_HOSTNAME?=$(ARG_CONTAINER_NAME)
 #-------------------------------------------------------------------------------
 ARG_PUID?=$(shell id -u)
 ARG_PGID?=$(shell id -g)

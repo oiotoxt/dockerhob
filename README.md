@@ -54,17 +54,17 @@
 (Option) Makefile에서 다음 두 라인 편집
 
     GPU?=0
-    ARG_CONTAINER_NAME?=ml-ssh-v1-DEFAULT
+    ARG_CONTAINER_NAME?=ml-ssh-default
 
     # 예)
     GPU?=0,1,2,3
-    ARG_CONTAINER_NAME?=ml-ssh-v1-BTS
+    ARG_CONTAINER_NAME?=ml-ssh-BTS
 
 명령어 설명 보기
 
     $ make
 
-```
+```bash
 # 출력된 결과
 
 _build                         로컬에 도커 이미지를 만듭니다.
@@ -92,13 +92,13 @@ cat                            Makefile 출력
 
     $ make run
 
-```
+```bash
 # 출력된 결과 (docker.ml.ssh)
 
 NV_GPU=0,1,2,3 nvidia-docker run -d --restart=unless-stopped \
-	--name ml-ssh-v1-BTS \
+	--name ml-ssh-BTS \
 	--ipc=host \
-	-h ML-SSH-V1 \
+	-h ml-ssh-BTS \
 	-e PUID=1080 -e PGID=1080 \
 	-P \
 	-v /home/MY_ID/MY_WORKSPACE:/workspace \
@@ -110,13 +110,13 @@ e01c613790a39a2d0f740b390241eac2370c084dc4b5e0026a67618e04c63a87
 
 혹은
 
-```
+```bash
 # 출력된 결과 (docker.ml.jpt)
 
 NV_GPU=0 nvidia-docker run -d --restart=unless-stopped \
-	--name ml-jpt-v1-BTS \
+	--name ml-jpt-BTS \
 	--ipc=host \
-	-h ML-JPT-V1 \
+	-h ml-jpt-BTS \
 	-e PUID=1080 -e PGID=1080 \
 	-e NOTEBOOKAPP_PASSWORD=sha1:eea72ef993c9:e8ed1d0e66a00a6cdfce2d3cddf685fb9e67742f \
 	-P \
@@ -131,12 +131,12 @@ a6e11563e19b2d0dea35bca4fe202471ff9bd28e0c9d6990853234628d1bc9e5
 
     $ make info
 
-```
+```bash
 # 출력된 결과 (docker.ml.ssh)
 
 ----------------------------------------
 ARG_IMAGE_NAME          = dockerhob/ml-ssh:v1
-ARG_CONTAINER_NAME      = ml-ssh-v1-BTS
+ARG_CONTAINER_NAME      = ml-ssh-BTS
 ARG_WORKSPACE_HOST      = /home/MY_ID/MY_WORKSPACE
 ARG_WORKSPACE_CONTAINER = /workspace
 ----------------------------------------
@@ -154,12 +154,12 @@ Port(TensorBoard)=32992
 
 혹은
 
-```
+```bash
 # 출력된 결과 (docker.ml.jpt)
 
 ----------------------------------------
 ARG_IMAGE_NAME          = dockerhob/ml-jpt:v1
-ARG_CONTAINER_NAME      = ml-jpt-v1-BTS
+ARG_CONTAINER_NAME      = ml-jpt-BTS
 ARG_WORKSPACE_HOST      = /home/MY_ID/MY_WORKSPACE
 ARG_WORKSPACE_CONTAINER = /workspace
 ----------------------------------------
