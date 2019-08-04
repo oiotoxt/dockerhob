@@ -46,11 +46,11 @@ $ cd dockerhob/docker.ml.ssh
 ```bash
 #(Option) Makefile에서 다음 두 라인 편집
 GPU?=0
-ARG_CONTAINER_NAME?=ml-ssh-default
+ARG_CONTAINER_NAME?=mldev-ssh-gpu-default
 
 # 예)
 GPU?=0,1,2,3
-ARG_CONTAINER_NAME?=ml-ssh-dev1
+ARG_CONTAINER_NAME?=mldev-ssh-gpu-dev1
 ```
 
 ```bash
@@ -85,9 +85,9 @@ $ make run
 
 # 결과 예)
 NV_GPU=0,1,2,3 nvidia-docker run -d --restart=unless-stopped \
-    --name ml-ssh-default \
+    --name mldev-ssh-gpu-default \
     --ipc=host \
-    -h ml-ssh-default \
+    -h mldev-ssh-gpu-default \
     -e PUID=1080 -e PGID=1080 \
     -P \
     -v /home/MY_ID/MY_WORKSPACE:/workspace \
@@ -103,8 +103,8 @@ $ make info
 
 # 결과 예)
 ----------------------------------------
-ARG_IMAGE_NAME          = dockerhob/ml-ssh:v1
-ARG_CONTAINER_NAME      = ml-ssh-default
+ARG_IMAGE_NAME          = dockerhob/mldev:ssh-gpu-v1
+ARG_CONTAINER_NAME      = mldev-ssh-gpu-default
 ARG_WORKSPACE_HOST      = /home/MY_ID/MY_WORKSPACE
 ARG_WORKSPACE_CONTAINER = /workspace
 ----------------------------------------

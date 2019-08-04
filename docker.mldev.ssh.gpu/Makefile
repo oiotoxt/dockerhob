@@ -78,8 +78,8 @@ ARG_TENSORFLOW_VERSION?=tf-nightly-gpu-2.0-preview
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/ml-ssh:v3
-ARG_CONTAINER_NAME?=ml-ssh-default
+ARG_IMAGE_NAME?=dockerhob/mldev:ssh-gpu-v1
+ARG_CONTAINER_NAME?=mldev-ssh-gpu-default
 # ARG_CONTAINER_HOSTNAME?=$(shell echo $(ARG_CONTAINER_NAME) | tr a-z A-Z)
 ARG_CONTAINER_HOSTNAME?=$(ARG_CONTAINER_NAME)
 #-------------------------------------------------------------------------------
