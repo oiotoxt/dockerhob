@@ -137,7 +137,6 @@ $ make rm
 
 ### 시스템 요구 사항
 
-* [Linux](https://ubuntu.com/)
 * [Docker](https://docs.docker.com/install/)
 
 ### 따라하기
