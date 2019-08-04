@@ -2,14 +2,14 @@
 
 * 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
   * make 명령어를 통한 약식 CLI 지원
-  * [/docker.ml.ssh](https://github.com/oiotoxt/dockerhob/tree/master/docker.ml.ssh)에 포함된 주요 패키지
+  * [/docker.mldev.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.ssh.gpu)에 포함된 주요 패키지
     * python        3.6    (apt)
     * onnx          latest (pip)
     * pytorch       latest (pip)
     * tensorflow    latest (pip)
     * **openssh-server** latest (apt)
       * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
-  * [/docker.ml.jpt](https://github.com/oiotoxt/dockerhob/tree/master/docker.ml.jpt)에 포함된 주요 패키지
+  * [/docker.mldev.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.jpt.gpu)에 포함된 주요 패키지
     * python        3.6    (apt)
     * onnx          latest (pip)
     * pytorch       latest (pip)
@@ -20,9 +20,7 @@
   * Deepo : https://github.com/ufoym/deepo
   * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
 
-# 1. [/docker.ml.ssh](https://github.com/oiotoxt/dockerhob/tree/master/docker.ml.ssh)
-
-## 1.1 GPU를 사용할 경우
+# 1. [/docker.mldev.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.ssh.gpu)
 
 ### 시스템 요구 사항
 
@@ -40,7 +38,7 @@ $ cd .../MY_WORKSPACE
 
 # 프로젝트 클론
 $ git clone https://github.com/oiotoxt/dockerhob.git
-$ cd dockerhob/docker.ml.ssh
+$ cd dockerhob/docker.mldev.ssh.gpu
 ```
 
 ```bash
@@ -133,12 +131,17 @@ $ ssh coder@172.20.41.21 -p 32993
 $ make rm
 ```
 
-## 1.2 CPU만 사용할 경우
+# 2. [/docker.mldev.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.jpt.gpu)
+
+### 시스템 요구 사항
+
+* [Linux](https://ubuntu.com/)
+* [NVIDIA Driver](https://www.google.com/search?newwindow=1&ei=x0lBXfGhI5zMmAW_3ZXoDQ&q=How+to+Install+latest+nvidia+drivers+in+linux&oq=How+to+Install+latest+nvidia+drivers+in+linux&gs_l=psy-ab.3..35i39i19.1543.1917..2800...0.0..0.122.232.0j2......0....1..gws-wiz.......0i19.NIeyvBbm3Xs&ved=0ahUKEwixoabA197jAhUcJqYKHb9uBd0Q4dUDCAo&uact=5)
+* [Docker](https://docs.docker.com/install/)
+* [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+
+# 3. [/docker.mldev.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.ssh.cpu)
 
 ### 시스템 요구 사항
 
 * [Docker](https://docs.docker.com/install/)
-
-### 따라하기
-
-* 준비 중입니다.
