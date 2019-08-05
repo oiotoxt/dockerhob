@@ -34,7 +34,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         wget \
         git \
         vim \
-        # libssl-dev \
+        libssl-dev \
         curl \
         unzip \
         unrar \
