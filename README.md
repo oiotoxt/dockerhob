@@ -2,14 +2,14 @@
 
 * 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
   * make 명령어를 통한 약식 CLI 지원
-  * [/docker.mldev.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.ssh.gpu)에 포함된 주요 패키지
+  * [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu)에 포함된 주요 패키지
     * python        3.6    (apt)
     * onnx          latest (pip)
     * pytorch       latest (pip)
     * tensorflow    latest (pip)
     * **openssh-server** latest (apt)
       * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
-  * [/docker.mldev.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.jpt.gpu)에 포함된 주요 패키지
+  * [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)에 포함된 주요 패키지
     * python        3.6    (apt)
     * onnx          latest (pip)
     * pytorch       latest (pip)
@@ -20,7 +20,38 @@
   * Deepo : https://github.com/ufoym/deepo
   * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
 
-# 1. [/docker.mldev.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.ssh.gpu)
+### docker(CPU) vs nvidia-docker(GPU)
+```
+# CPU Version
+┌────────────┬────────────┐
+│ TensorFlow │  PyTorch   │  <== Containers
+├────────────┴────────────┤
+│          Docker         │  <== Host (User)
+├╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶┤
+│          Linux          │  <== Host (Kernel)
+├─────────────────────────┤
+│           CPU           │  <== Hardware
+└─────────────────────────┘
+
+# GPU Version
+┌────────────┬────────────┐
+│ TensorFlow │  PyTorch   │
+│   cuDNN    │   cuDNN    │  <== Containers
+│   CUDA     │   CUDA     │
+├────────────┴────────────┤
+│      nvidia-docker      │
+│                         │  <== Host (User)
+│          Docker         │
+├╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶┤
+│      NVIDIA Driver      │
+│                         │  <== Host (Kernel)
+│          Linux          │
+├─────────────────────────┤
+│           GPU           │  <== Hardware
+└─────────────────────────┘
+```
+
+# 1. [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu)
 
 ### 시스템 요구 사항
 
@@ -38,17 +69,17 @@ $ cd .../MY_WORKSPACE
 
 # 프로젝트 클론
 $ git clone https://github.com/oiotoxt/dockerhob.git
-$ cd dockerhob/docker.mldev.ssh.gpu
+$ cd dockerhob/docker.mldev.base.ssh.gpu
 ```
 
 ```bash
 #(Option) Makefile에서 다음 두 라인 편집
 GPU?=0
-ARG_CONTAINER_NAME?=mldev-ssh-gpu-default
+ARG_CONTAINER_NAME?=mldev-base-ssh-gpu-default
 
 # 예)
 GPU?=0,1,2,3
-ARG_CONTAINER_NAME?=mldev-ssh-gpu-dev1
+ARG_CONTAINER_NAME?=mldev-base-ssh-gpu-dev1
 ```
 
 ```bash
@@ -83,9 +114,9 @@ $ make run
 
 # 결과 예)
 NV_GPU=0,1,2,3 nvidia-docker run -d --restart=unless-stopped \
-    --name mldev-ssh-gpu-default \
+    --name mldev-base-ssh-gpu-default \
     --ipc=host \
-    -h mldev-ssh-gpu-default \
+    -h mldev-base-ssh-gpu-default \
     -e PUID=1080 -e PGID=1080 \
     -P \
     -v /home/MY_ID/MY_WORKSPACE:/workspace \
@@ -102,7 +133,7 @@ $ make info
 # 결과 예)
 ----------------------------------------
 ARG_IMAGE_NAME          = dockerhob/mldev:ssh-gpu-v1
-ARG_CONTAINER_NAME      = mldev-ssh-gpu-default
+ARG_CONTAINER_NAME      = mldev-base-ssh-gpu-default
 ARG_WORKSPACE_HOST      = /home/MY_ID/MY_WORKSPACE
 ARG_WORKSPACE_CONTAINER = /workspace
 ----------------------------------------
@@ -131,7 +162,7 @@ $ ssh coder@172.20.41.21 -p 32993
 $ make rm
 ```
 
-# 2. [/docker.mldev.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.jpt.gpu)
+# 2. [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)
 
 ### 시스템 요구 사항
 
@@ -140,7 +171,7 @@ $ make rm
 * [Docker](https://docs.docker.com/install/)
 * [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
 
-# 3. [/docker.mldev.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.ssh.cpu)
+# 3. [/docker.mldev.base.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.cpu)
 
 ### 시스템 요구 사항
 

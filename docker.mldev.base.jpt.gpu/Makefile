@@ -29,40 +29,6 @@
 #   $ make
 
 #*******************************************************************************
-# System (CPU)
-#-------------------------------------------------------------------------------
-#
-#   ┌────────────┬────────────┐
-#   │ TensorFlow │  PyTorch   │  <== Containers
-#   ├────────────┴────────────┤
-#   │          Docker         │  <== Host (User)
-#   ├╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶┤
-#   │          Linux          │  <== Host (Kernel)
-#   ├─────────────────────────┤
-#   │           CPU           │  <== Hardware
-#   └─────────────────────────┘
-
-#*******************************************************************************
-# System (GPU)
-#-------------------------------------------------------------------------------
-#
-#   ┌────────────┬────────────┐
-#   │ TensorFlow │  PyTorch   │
-#   │   cuDNN    │   cuDNN    │  <== Containers
-#   │   CUDA     │   CUDA     │
-#   ├────────────┴────────────┤
-#   │      nvidia-docker      │
-#   │                         │  <== Host (User)
-#   │          Docker         │
-#   ├╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶┤
-#   │      NVIDIA Driver      │
-#   │                         │  <== Host (Kernel)
-#   │          Linux          │
-#   ├─────────────────────────┤
-#   │           GPU           │  <== Hardware
-#   └─────────────────────────┘
-
-#*******************************************************************************
 # Build Args
 #-------------------------------------------------------------------------------
 # <CPU>
@@ -78,8 +44,8 @@ ARG_TENSORFLOW_VERSION?=tf-nightly-gpu-2.0-preview
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/mldev:jpt-gpu-v1
-ARG_CONTAINER_NAME?=mldev-jpt-gpu-default
+ARG_IMAGE_NAME?=dockerhob/mldev:base-jpt-gpu-v1
+ARG_CONTAINER_NAME?=mldev-base-jpt-gpu-default
 # ARG_CONTAINER_HOSTNAME?=$(shell echo $(ARG_CONTAINER_NAME) | tr a-z A-Z)
 ARG_CONTAINER_HOSTNAME?=$(ARG_CONTAINER_NAME)
 #-------------------------------------------------------------------------------
@@ -118,7 +84,6 @@ run: ## 도커 컨테이너를 실행합니다. (랜덤 포트 연결)
 		-e NOTEBOOKAPP_PASSWORD=$(ARG_JUPYTER_PWD_HASH) \
 		-P \
 		-v $(ARG_WORKSPACE_HOST):$(ARG_WORKSPACE_CONTAINER) \
-		-v /SGS:/SGS \
 		-v /etc/timezone:/etc/timezone \
 		-v /etc/localtime:/etc/localtime \
 		$(ARG_IMAGE_NAME)
@@ -132,7 +97,6 @@ runi: ## 도커 컨테이너를 실행합니다. (랜덤 포트 연결. 인터�
 		-e NOTEBOOKAPP_PASSWORD=$(ARG_JUPYTER_PWD_HASH) \
 		-P \
 		-v $(ARG_WORKSPACE_HOST):$(ARG_WORKSPACE_CONTAINER) \
-		-v /SGS:/SGS \
 		-v /etc/timezone:/etc/timezone \
 		-v /etc/localtime:/etc/localtime \
 		$(ARG_IMAGE_NAME) \
@@ -148,7 +112,6 @@ runf: ## 도커 컨테이너를 실행합니다. (고정 포트 연결)
 		-p $(ARG_PORT_JUPYTERNOTE):8888 \
 		-p $(ARG_PORT_TENSORBOARD):6006 \
 		-v $(ARG_WORKSPACE_HOST):$(ARG_WORKSPACE_CONTAINER) \
-		-v /SGS:/SGS \
 		-v /etc/timezone:/etc/timezone \
 		-v /etc/localtime:/etc/localtime \
 		$(ARG_IMAGE_NAME)

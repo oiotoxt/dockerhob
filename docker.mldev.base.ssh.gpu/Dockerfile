@@ -8,8 +8,7 @@
 # tensorflow    latest (pip) O
 # ==================================================================
 
-# FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
-FROM ubuntu:18.04
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 ENV LANG C.UTF-8
 
 ARG tensorflow_version=tf-nightly-gpu-2.0-preview
@@ -55,7 +54,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         openssh-server \
         rsync \
         sshfs \
-        libsndfile1 \
+        # libsndfile1 \
         # python3-dev \
         # python3-pip \
         # python3-tk \
@@ -130,8 +129,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     "git+https://github.com/pytorch/vision.git" && \
     $PIP_INSTALL \
         torch_nightly -f \
-        # https://download.pytorch.org/whl/nightly/cu100/torch_nightly.html \
-        https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html \
+        https://download.pytorch.org/whl/nightly/cu100/torch_nightly.html \
         && \
 
 # ==================================================================
@@ -147,16 +145,16 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     $PIP_INSTALL \
         ipython \
         # jupyterlab \
-        # numba \
-        # cupy-cuda100 \
+        numba \
+        cupy-cuda100 \
         tensorboardX \
         unidecode \
-        num2words \
-        nltk \
-        jamo \
-        inflect \
-        librosa \
-        soundfile \
+        # num2words \
+        # nltk \
+        # jamo \
+        # inflect \
+        # librosa \
+        # soundfile \
         tqdm \
         json5 \
         pylint \

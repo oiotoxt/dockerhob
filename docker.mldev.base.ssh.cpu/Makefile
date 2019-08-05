@@ -16,7 +16,6 @@
 # 가장 먼저!
 #
 #   ARG_CONTAINER_NAME 을 수정하세요.
-#   GPU                를 수정하세요.
 #
 # 사용 예
 #
@@ -29,57 +28,24 @@
 #   $ make
 
 #*******************************************************************************
-# System (CPU)
-#-------------------------------------------------------------------------------
-#
-#   ┌────────────┬────────────┐
-#   │ TensorFlow │  PyTorch   │  <== Containers
-#   ├────────────┴────────────┤
-#   │          Docker         │  <== Host (User)
-#   ├╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶┤
-#   │          Linux          │  <== Host (Kernel)
-#   ├─────────────────────────┤
-#   │           CPU           │  <== Hardware
-#   └─────────────────────────┘
-
-#*******************************************************************************
-# System (GPU)
-#-------------------------------------------------------------------------------
-#
-#   ┌────────────┬────────────┐
-#   │ TensorFlow │  PyTorch   │
-#   │   cuDNN    │   cuDNN    │  <== Containers
-#   │   CUDA     │   CUDA     │
-#   ├────────────┴────────────┤
-#   │      nvidia-docker      │
-#   │                         │  <== Host (User)
-#   │          Docker         │
-#   ├╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶┤
-#   │      NVIDIA Driver      │
-#   │                         │  <== Host (Kernel)
-#   │          Linux          │
-#   ├─────────────────────────┤
-#   │           GPU           │  <== Hardware
-#   └─────────────────────────┘
-
-#*******************************************************************************
 # Build Args
 #-------------------------------------------------------------------------------
 # <CPU>
-# DOCKER=docker
+DOCKER=docker
 # PROCESSOR=CPU
-# ARG_TENSORFLOW_VERSION?=tf-nightly-2.0-preview
+ARG_TENSORFLOW_VERSION?=tf-nightly-2.0-preview
 
 # <GPU>
-GPU?=0
-DOCKER=NV_GPU=$(GPU) nvidia-docker
-ARG_TENSORFLOW_VERSION?=tf-nightly-gpu-2.0-preview
+# GPU?=0
+# DOCKER=NV_GPU=$(GPU) nvidia-docker
+# PROCESSOR=GPU
+# ARG_TENSORFLOW_VERSION?=tf-nightly-gpu-2.0-preview
 #-------------------------------------------------------------------------------
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/mldev:ssh-gpu-v1
-ARG_CONTAINER_NAME?=mldev-ssh-gpu-default
+ARG_IMAGE_NAME?=dockerhob/mldev:base-ssh-cpu-v1
+ARG_CONTAINER_NAME?=mldev-base-ssh-cpu-default
 # ARG_CONTAINER_HOSTNAME?=$(shell echo $(ARG_CONTAINER_NAME) | tr a-z A-Z)
 ARG_CONTAINER_HOSTNAME?=$(ARG_CONTAINER_NAME)
 #-------------------------------------------------------------------------------
@@ -114,9 +80,6 @@ run: ## 도커 컨테이너를 실행합니다. (랜덤 포트 연결)
 		-e PUID=$(ARG_PUID) -e PGID=$(ARG_PGID) \
 		-P \
 		-v $(ARG_WORKSPACE_HOST):$(ARG_WORKSPACE_CONTAINER) \
-		-v /SGS:/SGS \
-		-v /etc/timezone:/etc/timezone \
-		-v /etc/localtime:/etc/localtime \
 		$(ARG_IMAGE_NAME)
 
 runi: ## 도커 컨테이너를 실행합니다. (랜덤 포트 연결. 인터랙티브 모드)
@@ -127,9 +90,6 @@ runi: ## 도커 컨테이너를 실행합니다. (랜덤 포트 연결. 인터�
 		-e PUID=$(ARG_PUID) -e PGID=$(ARG_PGID) \
 		-P \
 		-v $(ARG_WORKSPACE_HOST):$(ARG_WORKSPACE_CONTAINER) \
-		-v /SGS:/SGS \
-		-v /etc/timezone:/etc/timezone \
-		-v /etc/localtime:/etc/localtime \
 		$(ARG_IMAGE_NAME) \
 		bash
 
@@ -142,9 +102,6 @@ runf: ## 도커 컨테이너를 실행합니다. (고정 포트 연결)
 		-p $(ARG_PORT_SSH):22 \
 		-p $(ARG_PORT_TENSORBOARD):6006 \
 		-v $(ARG_WORKSPACE_HOST):$(ARG_WORKSPACE_CONTAINER) \
-		-v /SGS:/SGS \
-		-v /etc/timezone:/etc/timezone \
-		-v /etc/localtime:/etc/localtime \
 		$(ARG_IMAGE_NAME)
 
 start: ## 컨테이너를 시작합니다.

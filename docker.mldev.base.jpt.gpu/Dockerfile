@@ -54,7 +54,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         # openssh-server \
         rsync \
         sshfs \
-        libsndfile1 \
+        # libsndfile1 \
         # python3-dev \
         # python3-pip \
         # python3-tk \
@@ -149,12 +149,12 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         cupy-cuda100 \
         tensorboardX \
         unidecode \
-        num2words \
-        nltk \
-        jamo \
-        inflect \
-        librosa \
-        soundfile \
+        # num2words \
+        # nltk \
+        # jamo \
+        # inflect \
+        # librosa \
+        # soundfile \
         tqdm \
         json5 \
         pytest \
