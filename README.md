@@ -2,19 +2,37 @@
 
 * 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
   * make 명령어를 통한 약식 CLI 지원
-  * [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu)에 포함된 주요 패키지
-    * python        3.6    (apt)
-    * onnx          latest (pip)
-    * pytorch       latest (pip)
-    * tensorflow    latest (pip)
-    * **openssh-server** latest (apt)
-      * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
-  * [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)에 포함된 주요 패키지
-    * python        3.6    (apt)
-    * onnx          latest (pip)
-    * pytorch       latest (pip)
-    * tensorflow    latest (pip)
-    * **jupyter**     latest (pip)
+  * Directories
+    * base
+      * [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu)에 포함된 주요 패키지
+        * python        3.6    (apt)
+        * onnx          latest (pip)
+        * pytorch       latest (pip)
+        * tensorflow    latest (pip)
+        * **openssh-server** latest (apt)
+          * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
+      * [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)에 포함된 주요 패키지
+        * python        3.6    (apt)
+        * onnx          latest (pip)
+        * pytorch       latest (pip)
+        * tensorflow    latest (pip)
+        * **jupyter**     latest (pip)
+    * spch
+      * [/docker.mldev.spch.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.ssh.gpu)에 포함된 주요 패키지
+        * python        3.6    (apt)
+        * onnx          latest (pip)
+        * pytorch       latest (pip)
+        * tensorflow    latest (pip)
+        * **openssh-server** latest (apt)
+          * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
+        * **Packages for speech-synthesis**
+      * [/docker.mldev.spch.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.jpt.gpu)에 포함된 주요 패키지
+        * python        3.6    (apt)
+        * onnx          latest (pip)
+        * pytorch       latest (pip)
+        * tensorflow    latest (pip)
+        * **jupyter**     latest (pip)
+        * **Packages for speech-synthesis**
 * 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
 * 참고한 프로젝트
   * Deepo : https://github.com/ufoym/deepo
