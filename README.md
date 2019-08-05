@@ -4,21 +4,21 @@
   * make 명령어를 통한 약식 CLI 지원
   * Directories
     * base
-      * [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu)에 포함된 주요 패키지
+      * /docker.mldev.base.ssh.gpu 및 /docker.mldev.base.ssh.cpu 에 포함된 주요 패키지
         * python        3.6    (apt)
         * onnx          latest (pip)
         * pytorch       latest (pip)
         * tensorflow    latest (pip)
         * **openssh-server** latest (apt)
           * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
-      * [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)에 포함된 주요 패키지
+      * /docker.mldev.base.jpt.gpu 에 포함된 주요 패키지
         * python        3.6    (apt)
         * onnx          latest (pip)
         * pytorch       latest (pip)
         * tensorflow    latest (pip)
         * **jupyter**     latest (pip)
     * spch
-      * [/docker.mldev.spch.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.ssh.gpu)에 포함된 주요 패키지
+      * /docker.mldev.spch.ssh.gpu 및 /docker.mldev.spch.ssh.cpu 에 포함된 주요 패키지
         * python        3.6    (apt)
         * onnx          latest (pip)
         * pytorch       latest (pip)
@@ -26,7 +26,7 @@
         * **openssh-server** latest (apt)
           * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
         * **Packages for speech-synthesis**
-      * [/docker.mldev.spch.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.jpt.gpu)에 포함된 주요 패키지
+      * /docker.mldev.spch.jpt.gpu 에 포함된 주요 패키지
         * python        3.6    (apt)
         * onnx          latest (pip)
         * pytorch       latest (pip)
