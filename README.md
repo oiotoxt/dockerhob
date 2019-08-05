@@ -1,8 +1,9 @@
 # 0. 소개
 
 * 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
-  * make 명령어를 통한 약식 CLI 지원
-* Directories
+  * make 명령어를 통한 약식 CLI를 지원합니다.
+  * 디렉토리 별로 서로 다른 도커 이미지를 사용합니다.
+* 디렉토리
   * base
     * [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu) 및
     * [/docker.mldev.base.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.cpu)에 포함된 주요 패키지
@@ -18,7 +19,7 @@
       * pytorch       latest (pip)
       * tensorflow    latest (pip)
       * **jupyter**     latest (pip)
-  * spch
+  * spch (음성합성 특화)
     * [/docker.mldev.spch.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.ssh.gpu) 및
     * [/docker.mldev.spch.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.ssh.cpu)에 포함된 주요 패키지
       * python        3.6    (apt)
