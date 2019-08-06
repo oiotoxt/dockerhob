@@ -4,6 +4,7 @@
 
 * 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
   * make 명령어를 통한 약식 CLI를 지원합니다.
+  * UID와 GID를 지정할 수 있습니다.
   * 디렉터리 별로 서로 다른 도커 이미지를 사용합니다.
 * 디렉터리
   * base
@@ -39,6 +40,8 @@
       * **jupyter**     latest (pip)
       * **Packages for speech-synthesis**
 * 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
+* Docker Hub에 등록된 이미지 열람
+  * https://cloud.docker.com/u/dockerhob/repository/docker/dockerhob/mldev/general
 * 참고한 프로젝트
   * Deepo : https://github.com/ufoym/deepo
   * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
@@ -165,8 +168,8 @@ ARG_PGID                = 1080
 ----------------------------------------
 Port(TensorBoard)=32992
 ----------------------------------------
-==> ssh-keygen -t rsa -b 4096 -C "$(id -un)[$(id -u)-$(id -g)]@$(hostname)"
-==> ssh-copy-id -i ~/.ssh/id_rsa.pub coder@172.20.41.21 -p 32993
+HINT: ssh-keygen -t rsa -b 4096 -C "$(id -un)[$(id -u)-$(id -g)]@$(hostname)"
+HINT: ssh-copy-id -i ~/.ssh/id_rsa.pub coder@172.20.41.21 -p 32993
 ----------------------------------------
 ==> ssh coder@172.20.41.21 -p 32993
 ----------------------------------------
@@ -174,6 +177,7 @@ Port(TensorBoard)=32992
 
 ```bash
 # (Option) 편의를 위해 호스트의 authrized_keys를 컨테이너에 복사 (password: coder)
+# 즉, SSH 키를 통해 호스트에 접속했다면, 컨테이너에도 아이디/비밀번호 입력 없이 접속할 수 있게 됩니다.
 $ make copyauth
 
 # 위 make info의 출력 내용을 참고하여 접속 (password: coder)
