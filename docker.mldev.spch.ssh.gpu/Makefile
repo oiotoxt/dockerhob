@@ -137,7 +137,7 @@ sshroot: ## 컨테이너에 SSH 연결 (as root)
 	$(eval SSH_PORT := $(shell docker port $(ARG_CONTAINER_NAME) | grep 22/ | sed 's/.*0.0.0.0://g' | sed 's/->.*//g'))
 	ssh root@$(HOST_IP) -p $(SSH_PORT)
 
-info: ## SSH로 컨테이너에 연결할 때 사용할 컨맨드 등 출력
+info: ## SSH로 컨테이너에 연결할 때 사용할 커맨드 등 출력
 	$(info ----------------------------------------)
 	$(info ARG_IMAGE_NAME          = $(ARG_IMAGE_NAME))
 	$(info ARG_CONTAINER_NAME      = $(ARG_CONTAINER_NAME))
