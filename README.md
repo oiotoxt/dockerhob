@@ -40,8 +40,8 @@
       * **jupyter**     latest (pip)
       * **Packages for speech-synthesis**
 * 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
-* Docker Hub에 등록된 이미지 열람
-  * https://cloud.docker.com/u/dockerhob/repository/docker/dockerhob/mldev/general
+* Docker Hub에 등록된 Tags
+  * https://hub.docker.com/r/dockerhob/mldev/tags
 * 참고한 프로젝트
   * Deepo : https://github.com/ufoym/deepo
   * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
