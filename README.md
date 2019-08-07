@@ -4,6 +4,7 @@
 ```bash
 $ cd docker.mldev.base.ssh.gpu
 $ make run
+$ make copyauth
 $ make info
 $ make rm
 ```
