@@ -25,9 +25,7 @@ $ make rm
 
 ### 디렉터리
 
-* 디렉터리 별로 서로 다른 도커 이미지를 사용합니다.
-
-> 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
+* 디렉터리 별로 서로 다른 도커 이미지를 사용합니다(추후 새로운 이미지들을 추가할 예정입니다).
 
 | base                                                                                             | ssh              | jpt       |
 |:------------------------------------------------------------------------------------------------:|:----------------:|:---------:|
@@ -77,7 +75,7 @@ $ make rm
 
 > `CPU` 버전을 사용할 경우 `Docker`만 설치하시면 됩니다.
 
-> [아몰라 설치법](https://github.com/oiotoxt/dockerhob/blob/master/INSTALL_REQ.md)
+> [아몰라 설치법!](https://github.com/oiotoxt/dockerhob/blob/master/INSTALL_REQ.md)
 
 ```bash
 # CPU Version
