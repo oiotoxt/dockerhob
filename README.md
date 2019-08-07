@@ -27,7 +27,13 @@ $ make rm
 
 ### 디렉터리
 
-* base (범용)
+| base                                                                                             | ssh              | jpt       |
+|:------------------------------------------------------------------------------------------------:|:----------------:|:---------:|
+| `python 3.6 (apt)`<br>`onnx latest (pip)`<br>`pytorch latest (pip)`<br>`tensorflow latest (pip)` | `openssh-server` | `jupyter` |
+
+> `spch`에는 `음성 관련 패키지`가 추가되어 있습니다.
+
+<!-- * base (범용)
   * [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu) 및
   * [/docker.mldev.base.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.cpu)에 포함된 주요 패키지
     * python        3.6    (apt)
@@ -58,7 +64,7 @@ $ make rm
     * pytorch       latest (pip)
     * tensorflow    latest (pip)
     * **jupyter**     latest (pip)
-    * **Packages for speech-synthesis**
+    * **Packages for speech-synthesis** -->
 
 # 시스템 요구 사항
 
@@ -66,6 +72,10 @@ $ make rm
 * [NVIDIA Driver](https://www.google.com/search?newwindow=1&ei=x0lBXfGhI5zMmAW_3ZXoDQ&q=How+to+Install+latest+nvidia+drivers+in+linux&oq=How+to+Install+latest+nvidia+drivers+in+linux&gs_l=psy-ab.3..35i39i19.1543.1917..2800...0.0..0.122.232.0j2......0....1..gws-wiz.......0i19.NIeyvBbm3Xs&ved=0ahUKEwixoabA197jAhUcJqYKHb9uBd0Q4dUDCAo&uact=5)
 * [Docker](https://docs.docker.com/install/)
 * [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+
+> `CPU` 버전을 사용할 경우 `Docker`만 설치하시면 됩니다.
+
+> [아몰라 설치법](https://github.com/oiotoxt/dockerhob/blob/master/INSTALL_REQ.md)
 
 ```bash
 # CPU Version
@@ -96,10 +106,6 @@ $ make rm
 │           GPU           │  <== Hardware
 └─────────────────────────┘
 ```
-
-> CPU 버전을 사용할 경우 [Docker](https://docs.docker.com/install/)만 설치하시면 됩니다.
-
-> [아몰라 설치법](https://github.com/oiotoxt/dockerhob/blob/master/INSTALL_REQ.md)
 
 # 디렉터리 별 사용법
 
