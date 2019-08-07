@@ -1,13 +1,22 @@
 ![capture.01.png](https://github.com/oiotoxt/dockerhob/blob/master/capture.01.png)
 
-# 0. 소개
+# TL;DR
+```bash
+$ cd docker.mldev.base.ssh.gpu
+$ make run
+$ make info
+$ make rm
+```
+
+# 소개
 
 * 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
   * make 명령어를 통한 약식 CLI를 지원합니다.
   * UID와 GID를 지정할 수 있습니다.
   * 디렉터리 별로 서로 다른 도커 이미지를 사용합니다.
+    * 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
 * 디렉터리
-  * base
+  * base (범용)
     * [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu) 및
     * [/docker.mldev.base.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.cpu)에 포함된 주요 패키지
       * python        3.6    (apt)
@@ -39,14 +48,13 @@
       * tensorflow    latest (pip)
       * **jupyter**     latest (pip)
       * **Packages for speech-synthesis**
-* 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
 * Docker Hub에 등록된 Tags
   * https://hub.docker.com/r/dockerhob/mldev/tags
 * 참고한 프로젝트
   * Deepo : https://github.com/ufoym/deepo
   * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
 
-### docker(CPU) vs nvidia-docker(GPU)
+### [참고] docker(CPU) vs nvidia-docker(GPU)
 ```
 # CPU Version
 ┌────────────┬────────────┐
@@ -77,7 +85,9 @@
 └─────────────────────────┘
 ```
 
-# 1. [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu)
+# 디렉터리 별 사용법
+
+## 1. [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu)
 
 ### 시스템 요구 사항
 
@@ -189,7 +199,7 @@ $ ssh coder@172.20.41.21 -p 32993
 $ make rm
 ```
 
-# 2. [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)
+## 2. [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)
 
 ### 시스템 요구 사항
 
@@ -198,7 +208,7 @@ $ make rm
 * [Docker](https://docs.docker.com/install/)
 * [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
 
-# 3. [/docker.mldev.base.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.cpu)
+## 3. [/docker.mldev.base.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.cpu)
 
 ### 시스템 요구 사항
 
