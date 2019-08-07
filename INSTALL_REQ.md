@@ -4,7 +4,7 @@
 
 ```bash
 # 여러가지 방법으로 NVIDIA Driver를 설치할 수 있습니다.
-# 다음은 PPA를 사용하여 최신 버전을 설치하는 방법입니다.
+# 다음은 PPA를 통해 최신 버전을 설치하는 방법입니다.
 
 $ sudo apt install ubuntu-drivers-common
 $ sudo add-apt-repository ppa:graphics-drivers/ppa
