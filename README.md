@@ -14,18 +14,20 @@ $ make rm
 
 ### 컨테이너 기반 머신러닝 개발 환경을 제공합니다
 
-* make 명령어를 통한 약식 CLI를 지원합니다.
-* UID와 GID를 지정할 수 있습니다.
-* 컨테이너에 SSH로 접속할 수 있습니다.
-* 디렉터리 별로 서로 다른 도커 이미지를 사용합니다.
-  * (지속적으로 다양한 Dockerfile을 추가할 예정입니다)
-* Docker Hub에 등록된 Tags
+* `make` 명령어를 통한 약식 `CLI`를 지원합니다.
+* `UID`와 `GID`를 지정할 수 있습니다.
+* 컨테이너에 `SSH`로 접속할 수 있습니다.
+* Docker Hub에 등록된 `Tags`
   * https://hub.docker.com/r/dockerhob/mldev/tags
 * 참고한 프로젝트
-  * Deepo : https://github.com/ufoym/deepo
-  * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
+  * [Deepo](https://github.com/ufoym/deepo)
+  * [Docker Color Logo](https://github.com/jmhardison/dockercolorlogo)
 
 ### 디렉터리
+
+* 디렉터리 별로 서로 다른 도커 이미지를 사용합니다.
+
+> 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
 
 | base                                                                                             | ssh              | jpt       |
 |:------------------------------------------------------------------------------------------------:|:----------------:|:---------:|
