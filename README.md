@@ -1,6 +1,7 @@
 ![capture.01.png](https://github.com/oiotoxt/dockerhob/blob/master/capture.01.png)
 
 # TL;DR
+
 ```bash
 $ cd docker.mldev.base.ssh.gpu
 $ make run
@@ -11,52 +12,66 @@ $ make rm
 
 # 소개
 
-* 컨테이너 기반 머신러닝 개발 환경을 제공합니다.
-  * make 명령어를 통한 약식 CLI를 지원합니다.
-  * UID와 GID를 지정할 수 있습니다.
-  * 디렉터리 별로 서로 다른 도커 이미지를 사용합니다.
-    * 지속적으로 다양한 Dockerfile을 추가할 예정입니다.
-* 디렉터리
-  * base (범용)
-    * [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu) 및
-    * [/docker.mldev.base.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.cpu)에 포함된 주요 패키지
-      * python        3.6    (apt)
-      * onnx          latest (pip)
-      * pytorch       latest (pip)
-      * tensorflow    latest (pip)
-      * **openssh-server** latest (apt)
-        * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
-    * [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)에 포함된 주요 패키지
-      * python        3.6    (apt)
-      * onnx          latest (pip)
-      * pytorch       latest (pip)
-      * tensorflow    latest (pip)
-      * **jupyter**     latest (pip)
-  * spch (음성합성 특화)
-    * [/docker.mldev.spch.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.ssh.gpu) 및
-    * [/docker.mldev.spch.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.ssh.cpu)에 포함된 주요 패키지
-      * python        3.6    (apt)
-      * onnx          latest (pip)
-      * pytorch       latest (pip)
-      * tensorflow    latest (pip)
-      * **openssh-server** latest (apt)
-        * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
-      * **Packages for speech-synthesis**
-    * [/docker.mldev.spch.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.jpt.gpu)에 포함된 주요 패키지
-      * python        3.6    (apt)
-      * onnx          latest (pip)
-      * pytorch       latest (pip)
-      * tensorflow    latest (pip)
-      * **jupyter**     latest (pip)
-      * **Packages for speech-synthesis**
-* Docker Hub에 등록된 Tags
-  * https://hub.docker.com/r/dockerhob/mldev/tags
-* 참고한 프로젝트
-  * Deepo : https://github.com/ufoym/deepo
-  * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
+### 컨테이너 기반 머신러닝 개발 환경을 제공합니다
 
-### [참고] docker(CPU) vs nvidia-docker(GPU)
-```
+* make 명령어를 통한 약식 CLI를 지원합니다.
+* UID와 GID를 지정할 수 있습니다.
+* 컨테이너에 SSH로 접속할 수 있습니다.
+* 디렉터리 별로 서로 다른 도커 이미지를 사용합니다.
+* (지속적으로 다양한 Dockerfile을 추가할 예정입니다)
+
+### 디렉터리
+
+* base (범용)
+  * [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu) 및
+  * [/docker.mldev.base.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.cpu)에 포함된 주요 패키지
+    * python        3.6    (apt)
+    * onnx          latest (pip)
+    * pytorch       latest (pip)
+    * tensorflow    latest (pip)
+    * **openssh-server** latest (apt)
+      * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
+  * [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)에 포함된 주요 패키지
+    * python        3.6    (apt)
+    * onnx          latest (pip)
+    * pytorch       latest (pip)
+    * tensorflow    latest (pip)
+    * **jupyter**     latest (pip)
+* spch (음성합성 특화)
+  * [/docker.mldev.spch.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.ssh.gpu) 및
+  * [/docker.mldev.spch.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.ssh.cpu)에 포함된 주요 패키지
+    * python        3.6    (apt)
+    * onnx          latest (pip)
+    * pytorch       latest (pip)
+    * tensorflow    latest (pip)
+    * **openssh-server** latest (apt)
+      * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
+    * **Packages for speech-synthesis**
+  * [/docker.mldev.spch.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.spch.jpt.gpu)에 포함된 주요 패키지
+    * python        3.6    (apt)
+    * onnx          latest (pip)
+    * pytorch       latest (pip)
+    * tensorflow    latest (pip)
+    * **jupyter**     latest (pip)
+    * **Packages for speech-synthesis**
+
+### Docker Hub에 등록된 Tags
+
+* https://hub.docker.com/r/dockerhob/mldev/tags
+
+### 참고한 프로젝트
+
+* Deepo : https://github.com/ufoym/deepo
+* Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
+
+# 시스템 요구 사항
+
+* [Linux](https://ubuntu.com/)
+* [NVIDIA Driver](https://www.google.com/search?newwindow=1&ei=x0lBXfGhI5zMmAW_3ZXoDQ&q=How+to+Install+latest+nvidia+drivers+in+linux&oq=How+to+Install+latest+nvidia+drivers+in+linux&gs_l=psy-ab.3..35i39i19.1543.1917..2800...0.0..0.122.232.0j2......0....1..gws-wiz.......0i19.NIeyvBbm3Xs&ved=0ahUKEwixoabA197jAhUcJqYKHb9uBd0Q4dUDCAo&uact=5)
+* [Docker](https://docs.docker.com/install/)
+* [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+
+```bash
 # CPU Version
 ┌────────────┬────────────┐
 │ TensorFlow │  PyTorch   │  <== Containers
@@ -86,16 +101,13 @@ $ make rm
 └─────────────────────────┘
 ```
 
+> CPU 버전을 사용할 경우 [Docker](https://docs.docker.com/install/)만 설치하시면 됩니다.
+
+> [아몰라 설치법](https://github.com/oiotoxt/dockerhob/INSTALL_REQ.md)
+
 # 디렉터리 별 사용법
 
 ## 1. [/docker.mldev.base.ssh.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.gpu)
-
-### 시스템 요구 사항
-
-* [Linux](https://ubuntu.com/)
-* [NVIDIA Driver](https://www.google.com/search?newwindow=1&ei=x0lBXfGhI5zMmAW_3ZXoDQ&q=How+to+Install+latest+nvidia+drivers+in+linux&oq=How+to+Install+latest+nvidia+drivers+in+linux&gs_l=psy-ab.3..35i39i19.1543.1917..2800...0.0..0.122.232.0j2......0....1..gws-wiz.......0i19.NIeyvBbm3Xs&ved=0ahUKEwixoabA197jAhUcJqYKHb9uBd0Q4dUDCAo&uact=5)
-* [Docker](https://docs.docker.com/install/)
-* [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
 
 ### 따라하기
 
@@ -202,15 +214,12 @@ $ make rm
 
 ## 2. [/docker.mldev.base.jpt.gpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.jpt.gpu)
 
-### 시스템 요구 사항
+### 따라하기
 
-* [Linux](https://ubuntu.com/)
-* [NVIDIA Driver](https://www.google.com/search?newwindow=1&ei=x0lBXfGhI5zMmAW_3ZXoDQ&q=How+to+Install+latest+nvidia+drivers+in+linux&oq=How+to+Install+latest+nvidia+drivers+in+linux&gs_l=psy-ab.3..35i39i19.1543.1917..2800...0.0..0.122.232.0j2......0....1..gws-wiz.......0i19.NIeyvBbm3Xs&ved=0ahUKEwixoabA197jAhUcJqYKHb9uBd0Q4dUDCAo&uact=5)
-* [Docker](https://docs.docker.com/install/)
-* [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+...
 
 ## 3. [/docker.mldev.base.ssh.cpu](https://github.com/oiotoxt/dockerhob/tree/master/docker.mldev.base.ssh.cpu)
 
-### 시스템 요구 사항
+### 따라하기
 
-* [Docker](https://docs.docker.com/install/)
+...
