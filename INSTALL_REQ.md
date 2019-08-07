@@ -18,7 +18,7 @@ $ sudo ubuntu-drivers autoinstall
 $ mkdir -p ~/repos/install && cd ~/repos/install
 $ curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 $ sudo usermod -aG docker $USER
-# (다시 로그인 해야 usermod가 적용됩니다)
+# (다시 로그인해야 usermod가 적용됩니다)
 ```
 
 ## [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
@@ -27,7 +27,6 @@ $ sudo usermod -aG docker $USER
 # If you have nvidia-docker 1.0 installed: we need to remove it and all existing GPU containers
 $ docker volume ls -q -f driver=nvidia-docker | xargs -r -I{} -n1 docker ps -q -a -f volume={} | xargs -r docker rm -f
 $ sudo apt-get purge -y nvidia-docker
-
 
 # Add the package repositories
 $ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \

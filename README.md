@@ -18,7 +18,12 @@ $ make rm
 * UID와 GID를 지정할 수 있습니다.
 * 컨테이너에 SSH로 접속할 수 있습니다.
 * 디렉터리 별로 서로 다른 도커 이미지를 사용합니다.
-* (지속적으로 다양한 Dockerfile을 추가할 예정입니다)
+  * (지속적으로 다양한 Dockerfile을 추가할 예정입니다)
+* Docker Hub에 등록된 Tags
+  * https://hub.docker.com/r/dockerhob/mldev/tags
+* 참고한 프로젝트
+  * Deepo : https://github.com/ufoym/deepo
+  * Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
 
 ### 디렉터리
 
@@ -54,15 +59,6 @@ $ make rm
     * tensorflow    latest (pip)
     * **jupyter**     latest (pip)
     * **Packages for speech-synthesis**
-
-### Docker Hub에 등록된 Tags
-
-* https://hub.docker.com/r/dockerhob/mldev/tags
-
-### 참고한 프로젝트
-
-* Deepo : https://github.com/ufoym/deepo
-* Docker Color Logo : https://github.com/jmhardison/dockercolorlogo
 
 # 시스템 요구 사항
 
@@ -103,7 +99,7 @@ $ make rm
 
 > CPU 버전을 사용할 경우 [Docker](https://docs.docker.com/install/)만 설치하시면 됩니다.
 
-> [아몰라 설치법](https://github.com/oiotoxt/dockerhob/INSTALL_REQ.md)
+> [아몰라 설치법](https://github.com/oiotoxt/dockerhob/blob/master/INSTALL_REQ.md)
 
 # 디렉터리 별 사용법
 
