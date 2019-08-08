@@ -17,6 +17,7 @@ $ make rm
 * `make` 명령어를 통한 약식 `CLI`를 지원합니다.
 * `UID`와 `GID`를 지정할 수 있습니다.
 * 컨테이너에 `SSH`로 접속할 수 있습니다.
+  * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)를 통해 원격 개발이 가능합니다.
 * Docker Hub에 등록된 `Tags`
   * https://hub.docker.com/r/dockerhob/mldev/tags
 * 참고한 프로젝트
@@ -75,7 +76,7 @@ $ make rm
 
 > `CPU` 버전을 사용할 경우 `Docker`만 설치하시면 됩니다.
 
-> [아몰라 설치법!](https://github.com/oiotoxt/dockerhob/blob/master/INSTALL_REQ.md)
+> [아몰랑 설치법!](https://github.com/oiotoxt/dockerhob/blob/master/INSTALL_REQ.md)
 
 ```bash
 # CPU Version
