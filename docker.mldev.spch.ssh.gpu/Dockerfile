@@ -156,11 +156,14 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         librosa \
         soundfile \
         tqdm \
-        json5 \
         pylint \
         pytest \
         pytest-cov \
+        json5 \
         boto3 \
+        pika \
+        grpcio \
+        protobuf \
         && \
 
 # CUSTOM ----------------------------------------------------------------------<

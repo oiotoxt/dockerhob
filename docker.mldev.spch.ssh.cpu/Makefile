@@ -44,7 +44,7 @@ ARG_TENSORFLOW_VERSION?=tf-nightly-2.0-preview
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/mldev:spch-ssh-cpu-v1
+ARG_IMAGE_NAME?=dockerhob/mldev:spch-ssh-cpu-v2
 ARG_CONTAINER_NAME?=mldev-spch-ssh-cpu-default
 # ARG_CONTAINER_HOSTNAME?=$(shell echo $(ARG_CONTAINER_NAME) | tr a-z A-Z)
 ARG_CONTAINER_HOSTNAME?=$(ARG_CONTAINER_NAME)
