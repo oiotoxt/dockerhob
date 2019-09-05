@@ -11,8 +11,6 @@
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 ENV LANG C.UTF-8
 
-ARG tensorflow_version=tf-nightly-gpu-2.0-preview
-
 RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
     GIT_CLONE="git clone --depth 10" && \
@@ -122,14 +120,34 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         protobuf \
         enum34 \
         pyyaml \
-        typing \
-        torch \
-        && \
+        typing
+
+#-------------------------------------------------------------------------------
+# CPU (TF1)
+# ARG tensorflow_ver='tensorflow==1.14.0'
+# ARG torch_ver='torch==1.2.0+cpu'
+# ARG torchvision_ver='torchvision==0.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html'
+
+# CPU (TF2)
+# ARG tensorflow_ver='tensorflow==2.0.0-rc0'
+# ARG torch_ver='torch==1.2.0+cpu'
+# ARG torchvision_ver='torchvision==0.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html'
+
+# GPU (TF1)
+ARG tensorflow_ver='tensorflow-gpu==1.14.0'
+ARG torch_ver='torch==1.2.0'
+ARG torchvision_ver='torchvision==0.4.0 -f https://download.pytorch.org/whl/torch_stable.html'
+
+# GPU (TF2)
+# ARG tensorflow_ver='tensorflow-gpu==2.0.0-rc0'
+# ARG torch_ver='torch==1.2.0'
+# ARG torchvision_ver='torchvision==0.4.0 -f https://download.pytorch.org/whl/torch_stable.html'
+#-------------------------------------------------------------------------------
+
+RUN PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
     $PIP_INSTALL \
-    "git+https://github.com/pytorch/vision.git" && \
-    $PIP_INSTALL \
-        torch_nightly -f \
-        https://download.pytorch.org/whl/nightly/cu100/torch_nightly.html \
+        ${torch_ver} \
+        ${torchvision_ver} \
         && \
 
 # ==================================================================
@@ -137,11 +155,11 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # ------------------------------------------------------------------
 
     $PIP_INSTALL \
-        ${tensorflow_version} \
-        && \
+        ${tensorflow_ver}
 
 # CUSTOM ---------------------------------------------------------------------->
 
+RUN PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
     $PIP_INSTALL \
         ipython \
         # jupyterlab \

@@ -33,18 +33,16 @@
 # <CPU>
 DOCKER=docker
 # PROCESSOR=CPU
-ARG_TENSORFLOW_VERSION?=tf-nightly-2.0-preview
 
 # <GPU>
 # GPU?=0
 # DOCKER=NV_GPU=$(GPU) nvidia-docker
 # PROCESSOR=GPU
-# ARG_TENSORFLOW_VERSION?=tf-nightly-gpu-2.0-preview
 #-------------------------------------------------------------------------------
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/mldev:spch-ssh-cpu-v2
+ARG_IMAGE_NAME?=dockerhob/mldev:spch-ssh-cpu-v3
 ARG_CONTAINER_NAME?=mldev-spch-ssh-cpu-default
 # ARG_CONTAINER_HOSTNAME?=$(shell echo $(ARG_CONTAINER_NAME) | tr a-z A-Z)
 ARG_CONTAINER_HOSTNAME?=$(ARG_CONTAINER_NAME)
@@ -63,7 +61,6 @@ ARG_WORKSPACE_CONTAINER?=/workspace
 #-------------------------------------------------------------------------------
 _build: ## 로컬에 도커 이미지를 만듭니다.
 	docker build -t $(ARG_IMAGE_NAME) \
-		--build-arg tensorflow_version=$(ARG_TENSORFLOW_VERSION) \
 		-f Dockerfile .
 
 _push: ## [관리자 전용] 이미지를 레지스트리에 push 합니다.
