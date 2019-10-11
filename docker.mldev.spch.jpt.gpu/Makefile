@@ -42,7 +42,7 @@ DOCKER=NV_GPU=$(GPU) nvidia-docker
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/mldev:spch-jpt-gpu-v3
+ARG_IMAGE_NAME?=dockerhob/mldev:spch-jpt-gpu-v4
 ARG_CONTAINER_NAME?=mldev-spch-jpt-gpu-default
 # ARG_CONTAINER_HOSTNAME?=$(shell echo $(ARG_CONTAINER_NAME) | tr a-z A-Z)
 ARG_CONTAINER_HOSTNAME?=$(ARG_CONTAINER_NAME)

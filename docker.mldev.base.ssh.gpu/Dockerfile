@@ -129,7 +129,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # ARG torchvision_ver='torchvision==0.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html'
 
 # CPU (TF2)
-# ARG tensorflow_ver='tensorflow==2.0.0-rc0'
+# ARG tensorflow_ver='tensorflow==2.0.0'
 # ARG torch_ver='torch==1.2.0+cpu'
 # ARG torchvision_ver='torchvision==0.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html'
 
@@ -139,7 +139,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # ARG torchvision_ver='torchvision==0.4.0 -f https://download.pytorch.org/whl/torch_stable.html'
 
 # GPU (TF2)
-ARG tensorflow_ver='tensorflow-gpu==2.0.0-rc0'
+ARG tensorflow_ver='tensorflow-gpu==2.0.0'
 ARG torch_ver='torch==1.2.0'
 ARG torchvision_ver='torchvision==0.4.0 -f https://download.pytorch.org/whl/torch_stable.html'
 #-------------------------------------------------------------------------------

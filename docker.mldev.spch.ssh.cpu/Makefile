@@ -42,7 +42,7 @@ DOCKER=docker
 # JUPYTER=notebook
 # JUPYTER=lab
 #-------------------------------------------------------------------------------
-ARG_IMAGE_NAME?=dockerhob/mldev:spch-ssh-cpu-v3
+ARG_IMAGE_NAME?=dockerhob/mldev:spch-ssh-cpu-v4
 ARG_CONTAINER_NAME?=mldev-spch-ssh-cpu-default
 # ARG_CONTAINER_HOSTNAME?=$(shell echo $(ARG_CONTAINER_NAME) | tr a-z A-Z)
 ARG_CONTAINER_HOSTNAME?=$(ARG_CONTAINER_NAME)
